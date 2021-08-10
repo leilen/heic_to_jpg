@@ -75,6 +75,9 @@ async function convertToJpg(fileName: string) {
   const outputFileName = `${outputDir}/${realFileName.replace(/\.((HEIC)|(heic))$/g, '.jpg')}`;
   try {
     const fileType = await FileType.fromFile(fileName);
+    if (!fileType) {
+      return;
+    }
     if (fileType.ext === 'heic') {
       const inputBuffer = fs.readFileSync(fileName);
       const outputBuffer = await convert({
@@ -83,10 +86,7 @@ async function convertToJpg(fileName: string) {
         quality: 1,
       });
       await promisify(fs.writeFile)(outputFileName, outputBuffer);
-      fs.copyFileSync(outputFileName, outputFileName.replace(outputDir, `${outputDir}/changed`));
       console.log(outputFileName);
-    } else {
-      fs.copyFileSync(fileName, outputFileName);
     }
   } catch (e) {
     console.log(e);
