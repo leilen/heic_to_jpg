@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+dist/*
+package-lock.json
+output/*
+input/*
+output/changed/*
+!output/changed
+!/**/.keep

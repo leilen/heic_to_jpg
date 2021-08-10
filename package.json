@@ -1,0 +1,36 @@
+{
+        "name": "heic_to_jpg",
+        "version": "1.0.0",
+        "description": "",
+        "main": "dist/app.js",
+        "scripts": {
+                "build": "webpack -p --mode=production",
+                "pro": "node dist/app.js",
+                "start": "ts-node src/app.ts",
+                "clean": "rm -rf ./dist/* && touch ./dist/.keep"
+        },
+        "author": "",
+        "license": "ISC",
+        "devDependencies": {
+                "@types/node": "^12.7.8",
+                "@typescript-eslint/eslint-plugin": "^4.20.0",
+                "@typescript-eslint/parser": "^4.20.0",
+                "eslint": "^7.23.0",
+                "eslint-config-prettier": "^8.1.0",
+                "eslint-plugin-prettier": "^3.3.1",
+                "eslint-plugin-react": "^7.23.1",
+                "prettier": "^2.2.1",
+                "ts-node": "^8.4.1",
+                "typescript": "^3.6.3",
+                "webpack-cli": "^3.3.9"
+        },
+        "dependencies": {
+                "app-root-path": "^3.0.0",
+                "file-type": "^16.3.0",
+                "heic-convert": "^1.2.4",
+                "ts-loader": "^6.2.0",
+                "util": "^0.11.1",
+                "webpack": "^4.41.0",
+                "webpack-node-externals": "^1.7.2"
+        }
+}
